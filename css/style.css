@@ -211,7 +211,47 @@ i {
     background-image: url(../img/mine.jpg);
     height: calc(100% - 140px);
     overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    padding-top: 5%;
 }
+
+.messages ul {
+    list-style: none;
+}
+
+.messages li {
+    margin-top: 10px;
+}
+
+.message-box {
+    width: 30%;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.message-date {
+    display: block;
+    font-size: 10px;
+    margin-left: auto;
+    color: #b8b8b8;
+}
+
+.sent {
+    background-color: #D5F9BA;
+    margin-left: auto;
+    margin-right: 100px;
+}
+
+.received {
+    background-color: #FFFFFF;
+    margin-left: 100px;
+}
+
+
+/* New message field */
 
 .message-input {
     background-color: #F3EEEA;

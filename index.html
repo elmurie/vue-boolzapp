@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+    
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,6 +18,7 @@
         <!-- /css -->
         <title>BoolzApp</title>
     </head>
+
     <body>
         <div class="container" id="root">
 
@@ -63,15 +65,14 @@
                     </div>
                     <!-- Search -->
 
+                    <!-- Contacts list -->
                     <ul class="contacts">
                         <li v-for="contact in contacts">
                             <img :src="'img/avatar'+ contact.avatar +'.jpg'" :alt="contact.name">
-                            <div class="contact-name">
-                                {{contact.name}}
-                            </div>
+                            <div class="contact-name">{{contact.name}}</div>
                         </li>
                     </ul>
-
+                    <!-- /Contacts list -->
 
                 </div>
                 <!-- /Sidebar -->
@@ -99,7 +100,32 @@
 
                     <!-- Messages -->
                     <div class="messages">
-                        
+                        <ul>
+                            <li class="message-box sent">
+                                <div class="message-content">
+                                    Hai portato a spasso il cane?
+                                </div>
+                                <div class="message-date">
+                                    10/01/2020 15:30:55
+                                </div> 
+                            </li>
+                            <li class="message-box sent">
+                                <div class="message-content">
+                                    Ricordati di dargli da mangiare
+                                </div>
+                                <div class="message-date">
+                                    10/01/2020 15:50:00
+                                </div> 
+                            </li>
+                            <li class="message-box received">
+                                <div class="message-content">
+                                    Tutto fatto!
+                                </div>
+                                <div class="message-date">
+                                    10/01/2020 16:15:22
+                                </div> 
+                            </li>
+                        </ul>
                     </div>
                     <!-- Messages -->
 
@@ -128,4 +154,5 @@
             <!-- /Main JS -->
         <!-- /JS -->
     </body>
+
 </html>
