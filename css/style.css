@@ -32,6 +32,7 @@ body {
 .app-left {
     background-color: red;
     width: 30%;
+    height: 100%;
 }
 
 /* User bar */
@@ -123,7 +124,60 @@ body {
 
 
 /* ChatBox */
+
 .app-right {
     background-color: blue;
     width: 70%;
+    height: 100%;
+    position: relative;
+}
+
+/* Contact bar */
+
+.chat-bar {
+    background-color: purple;
+    height: 70px;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-profile {
+    display: flex;
+}
+
+.chat-bar .icons i {
+    margin: 0 5px;
+}
+
+/* Message field */
+
+.messages {
+    background-image: url(../img/mine.jpg);
+    height: calc(100% - 140px);
+    overflow-y: scroll;
+}
+
+.message-input {
+    background-color: salmon;
+    position: absolute;
+    bottom: 0;
+    height: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.message-input input {
+    margin: 0 20px;
+    width: 80%;
+    padding-left: 10px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.message-input i {
+    font-size: 26px;
 }
