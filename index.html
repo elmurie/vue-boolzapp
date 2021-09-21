@@ -5,6 +5,9 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- favicon -->
+        <link rel="icon" href="img/favicon.png" sizes="16x16" type="image/png">
+        <!-- /favicon -->
         <!-- fontawesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <!-- /fontawesome -->
@@ -32,7 +35,7 @@
 
                         <div class="user-profile">
                             <img src="img/avatar_io.jpg" alt="My avatar">
-                            <h3>Nome Utente</h3>
+                            <h3>Simone Morieri</h3>
                         </div>
 
                         <div class="icons">
@@ -67,7 +70,7 @@
 
                     <!-- Contacts list -->
                     <ul class="contacts">
-                        <li v-for="contact in contacts">
+                        <li v-for="(contact, index) in contacts" @click="changeContact(index)">
                             <img :src="'img/avatar'+ contact.avatar +'.jpg'" :alt="contact.name">
                             <div class="contact-name">{{contact.name}}</div>
                         </li>
@@ -83,9 +86,9 @@
                     <!-- Contact bar -->
                     <div class="chat-bar">
                         <div class="contact-profile">
-                            <img src="" alt="">
+                            <img :src="'img/avatar'+ contacts[counter].avatar +'.jpg'" :alt="contacts[counter].name">
                             <div class="contact-text">
-                                <h3>Nome Utente</h3>
+                                <h3>{{contacts[counter].name}}</h3>
                                 <h6>Ultimo accesso oggi alle</h6>
                             </div>
                         </div>
@@ -101,29 +104,13 @@
                     <!-- Messages -->
                     <div class="messages">
                         <ul>
-                            <li class="message-box sent">
+                            <li v-for="(messages, index) in contacts[counter].messages" class="message-box" :class="contacts[counter].messages[index].status == 'sent' ? 'sent': 'received'">
                                 <div class="message-content">
-                                    Hai portato a spasso il cane?
+                                    {{messages.message}}
                                 </div>
                                 <div class="message-date">
-                                    10/01/2020 15:30:55
-                                </div> 
-                            </li>
-                            <li class="message-box sent">
-                                <div class="message-content">
-                                    Ricordati di dargli da mangiare
+                                    {{messages.date}}
                                 </div>
-                                <div class="message-date">
-                                    10/01/2020 15:50:00
-                                </div> 
-                            </li>
-                            <li class="message-box received">
-                                <div class="message-content">
-                                    Tutto fatto!
-                                </div>
-                                <div class="message-date">
-                                    10/01/2020 16:15:22
-                                </div> 
                             </li>
                         </ul>
                     </div>

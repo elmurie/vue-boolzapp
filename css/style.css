@@ -67,7 +67,7 @@ i {
     margin: 0 5px;
 }
 
-/* Toggle Desktop notifications */
+/* Desktop notifications */
 
 .desktop-notifications {
     background-color: #8dd9fc;
@@ -199,6 +199,19 @@ i {
 
 .contact-profile {
     display: flex;
+}
+
+.contact-profile img {
+    height: 50px;
+    width: 50px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.contact-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .chat-bar .icons i {
