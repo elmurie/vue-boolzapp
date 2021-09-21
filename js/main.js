@@ -88,7 +88,6 @@ const app = new Vue({
     methods : {
         changeContact : function(index) {
             this.counter = index;
-
         }
     }
 });

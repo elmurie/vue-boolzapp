@@ -70,7 +70,7 @@
 
                     <!-- Contacts list -->
                     <ul class="contacts">
-                        <li v-for="(contact, index) in contacts" @click="changeContact(index)">
+                        <li v-for="(contact, index) in contacts" @click="changeContact(index)" :tabindex="index">
                             <img :src="'img/avatar'+ contact.avatar +'.jpg'" :alt="contact.name">
                             <div class="contact-name">{{contact.name}}</div>
                         </li>

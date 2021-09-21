@@ -157,7 +157,11 @@ i {
 }
 
 .contacts li:hover {
-    background-color: #e6e6e6;
+    background-color: #f5f5f5;
+}
+
+.contacts li:focus {
+    background-color: #f5f5f5;
 }
 
 .contacts li img {
