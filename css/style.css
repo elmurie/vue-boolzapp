@@ -8,5 +8,9 @@
 /* Common */
 
 body {
+    height: 100vh;
+    padding: 30px 0;
+    background: hsl(90, 8%, 85%);
+    background: linear-gradient(0deg, hsl(90, 8%, 85%) 85%, hsl(174, 100%, 29%) 85%);
     font-family: 'Lato', sans-serif;
 }
