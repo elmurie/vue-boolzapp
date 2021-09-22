@@ -70,8 +70,8 @@
 
                     <!-- Contacts list -->
                     <ul class="contacts">
-                        <li v-for="(contact, index) in contacts" @click="changeContact(index)" :tabindex="index">
-                            <img :src="'img/avatar'+ contact.avatar +'.jpg'" :alt="contact.name">
+                        <li v-for="(contact, index) in contacts" :key="index" @click="changeContact(index)" :tabindex="index">
+                            <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
                             <div class="contact-name">{{contact.name}}</div>
                         </li>
                     </ul>
@@ -119,7 +119,7 @@
                     <!-- Message input -->
                     <div class="message-input">
                         <i class="far fa-smile"></i>
-                        <input type="text" placeholder="Scrivi un messaggio">
+                        <input v-model="newMessage.message" type="text" placeholder="Scrivi un messaggio" @keyup.enter="addMessage">
                         <i class="fas fa-microphone"></i>
                     </div>
                     <!-- Message input -->

@@ -83,11 +83,24 @@ const app = new Vue({
                 ],
             },
         ],
-        counter: 0
+        counter: 0,
+        newMessage : {
+            message : '',
+            status : 'sent' 
+        }
     },
     methods : {
+        
         changeContact : function(index) {
             this.counter = index;
+        },
+
+        addMessage : function() {
+            if ( this.newMessage.message != '') {
+                let newObj = { message : this.newMessage.message, status : 'sent'}
+                this.contacts[this.counter].messages.push(newObj);
+                this.newMessage.message = '';
+            }
         }
     }
 });

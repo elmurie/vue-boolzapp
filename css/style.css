@@ -9,14 +9,14 @@
 
 body {
     height: 100vh;
-    padding: 30px 0;
-    background: hsl(90, 8%, 85%);
-    background: linear-gradient(0deg, hsl(90, 8%, 85%) 85%, hsl(174, 100%, 29%) 85%);
+    padding: 1.875rem 0;
+    background: #d9dcd6;
+    background: linear-gradient(0deg, #d9dcd6 85%, #009485 85%);
     font-family: 'Lato', sans-serif;
 }
 
 i {
-    font-size: 22px;
+    font-size: 1.375rem;
     color: #b0b0b0;
 }
 
@@ -43,12 +43,12 @@ i {
 /* User bar */
 .user-bar {
     background-color: #EAEAEA;
-    height: 70px;
-    padding: 10px;
+    height: 4.375rem;
+    padding: .625rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-right: .5px solid #b8b8b8;
+    border-right: .03125rem solid #b8b8b8;
 }
 
 .user-profile {
@@ -57,33 +57,33 @@ i {
 }
 
 .user-profile img {
-    height: 50px;
-    width: 50px;
-    margin-right: 10px;
+    height: 3.125rem;
+    width: 3.125rem;
+    margin-right: .625rem;
     border-radius: 50%;
 }
 
 .user-bar .icons i {
-    margin: 0 5px;
+    margin: 0 .3125rem;
 }
 
 /* Desktop notifications */
 
 .desktop-notifications {
     background-color: #8dd9fc;
-    height: 80px;
-    padding-left: 20px;
+    height: 5rem;
+    padding-left: 1.25rem;
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
 
 .desktop-notifications .icons {
-    height: 50px;
-    width: 50px;
+    height: 3.125rem;
+    width: 3.125rem;
     background-color: white;
-    font-size: 25px;
-    padding: 10px;
+    font-size: 1.5625rem;
+    padding: .625rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -99,8 +99,8 @@ i {
 
 .chat-finder {
     background-color: #fafafa;
-    height: 50px;
-    padding: 0 5px;
+    height: 3.125rem;
+    padding: 0 .3125rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -109,22 +109,22 @@ i {
 .search {
     background: #ffff;
     width: 100%;
-    height: 30px;
+    height: 1.875rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: .5px solid #e6e6e6;
+    border: .03125rem solid #e6e6e6;
 
 }
 
 .mag-glass {
-    height: 30px;
+    height: 1.875rem;
     width: 13%;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: .7rem;
-    border-right: .5px solid #e6e6e6;
+    border-right: .03125rem solid #e6e6e6;
 
 }
 
@@ -133,27 +133,27 @@ i {
 }
 
 .search input {
-    height: 27px;
+    height: 1.6875rem;
     width: 87%;
     background-color: white;
     border: none;
-    padding-left: 10px;
+    padding-left: .625rem;
     outline: none;
     font-size: .7rem;
 }
 
 .contacts {
     overflow-y: scroll;
-    height: calc( 100% - 200px);
+    height: calc( 100% - 12.5rem);
 }
 
 .contacts li {
-    height: 80px;
+    height: 5rem;
     width: 100%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    border-bottom: .5px solid #e6e6e6;
+    border-bottom: .03125rem solid #e6e6e6;
 }
 
 .contacts li:hover {
@@ -165,10 +165,10 @@ i {
 }
 
 .contacts li img {
-    width: 50px;
-    height: 50px;
+    width: 3.125rem;
+    height: 3.125rem;
     border-radius: 50%;
-    margin: 0 10px;
+    margin: 0 .625rem;
 }
 
 .contacts li .contact-name {
@@ -190,8 +190,8 @@ i {
 
 .chat-bar {
     background-color: #EAEAEA;
-    height: 70px;
-    padding: 10px;
+    height: 4.375rem;
+    padding: .625rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -206,9 +206,9 @@ i {
 }
 
 .contact-profile img {
-    height: 50px;
-    width: 50px;
-    margin-right: 10px;
+    height: 3.125rem;
+    width: 3.125rem;
+    margin-right: .625rem;
     border-radius: 50%;
 }
 
@@ -219,14 +219,14 @@ i {
 }
 
 .chat-bar .icons i {
-    margin: 0 5px;
+    margin: 0 .3125rem;
 }
 
 /* Message field */
 
 .messages {
     background-image: url(../img/mine.jpg);
-    height: calc(100% - 140px);
+    height: calc(100% - 8.75rem);
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
@@ -238,33 +238,33 @@ i {
 }
 
 .messages li {
-    margin-top: 10px;
+    margin-top: .625rem;
 }
 
 .message-box {
     width: 30%;
-    padding: 10px;
-    border-radius: 10px;
+    padding: .625rem;
+    border-radius: .625rem;
     display: flex;
     flex-direction: column;
 }
 
 .message-date {
     display: block;
-    font-size: 10px;
-    margin-left: auto;
+    font-size: .625rem;
+    margin: .625rem 0 0 auto;
     color: #b8b8b8;
 }
 
 .sent {
     background-color: #D5F9BA;
     margin-left: auto;
-    margin-right: 100px;
+    margin-right: 6.25rem;
 }
 
 .received {
     background-color: #FFFFFF;
-    margin-left: 100px;
+    margin-left: 6.25rem;
 }
 
 
@@ -274,7 +274,7 @@ i {
     background-color: #F3EEEA;
     position: absolute;
     bottom: 0;
-    height: 70px;
+    height: 4.375rem;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -283,14 +283,14 @@ i {
 }
 
 .message-input input {
-    margin: 0 20px;
+    margin: 0 1.25rem;
     width: 80%;
-    padding-left: 10px;
-    height: 40px;
-    border-radius: 5px;
+    padding-left: .625rem;
+    height: 2.5rem;
+    border-radius: .3125rem;
     border: none;
 }
 
 .message-input i {
-    font-size: 26px;
+    font-size: 1.625rem;
 }
