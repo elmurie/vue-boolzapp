@@ -247,6 +247,12 @@ i {
     border-radius: .625rem;
     display: flex;
     flex-direction: column;
+    inline-size: min-content;
+}
+
+.message-content {
+    word-wrap: break-word;
+    inline-size: 12.5rem;
 }
 
 .message-date {

@@ -127,7 +127,9 @@ const app = new Vue({
             '👍',
             '👏👏👏',
             'Buon compleanno 🎉 !'
-        ]
+        ],
+        search : ''
+
 
     },
     methods : {
@@ -145,12 +147,21 @@ const app = new Vue({
                 let newObj = { date : dayjs().format(('DD/MM/YYYY HH:mm:ss')) , message : this.newMessage.message, status : 'sent'}
                 this.contacts[this.counter].messages.push(newObj);
                 this.newMessage.message = '';
+                this.autoScroll();
+                
                 setTimeout( () => {
                     let reply = { date : dayjs().format(('DD/MM/YYYY HH:mm:ss')) ,message : this.randomReplies[this.randomNumber()], status : 'received'};
                     this.contacts[this.counter].messages.push(reply)
+                    this.autoScroll();
                 }, 1000);
             }
+        },
+        autoScroll: function () {
+            const chatBox = document.getElementById("messageField");
+            setTimeout( () => {chatBox.scrollTop = chatBox.scrollHeight} ,0 );
+            
         }
+        
     }
 });
 
