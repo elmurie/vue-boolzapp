@@ -102,7 +102,7 @@ const app = new Vue({
             '🤷‍♂️🤷‍♂️🤷‍♂️',
             '🤬 vale come risposta?',
             'Lascia stare, ci penso io domani',
-            'La mail è senza allegato, dai ragazzi i fondamentali!🤦‍♂️ Ma ti pare che io posso lavorare così? Il cliente ve lo gestite voi allora. Anzi, vi dirò di più: aspettatevi le mie dimissioni.\nPrima delle 5 vi mando una mail ufficiale, non dubitate che ci sia un allegato.',
+            'La mail è senza allegato, dai ragazzi i fondamentali!🤦‍♂️',
             'Sì ci siamo stati la settimana scorsa ma il cibo era 🤢',
             'Per questa volta ci penso io, tranquillo. Però devo ricordarti che sono in ferie fino al 10, non ci sarà una seconda volta',
             'Ok',
@@ -160,7 +160,18 @@ const app = new Vue({
             const chatBox = document.getElementById("messageField");
             setTimeout( () => {chatBox.scrollTop = chatBox.scrollHeight} ,0 );
             
-        }
+        },
+        viewContacts: function () {
+            this.contacts.forEach((contact) => {
+                let lowerCaseName = contact.name.toLowerCase();
+                let upperCaseName = contact.name.toUpperCase();
+                if  (lowerCaseName.includes(this.search) || upperCaseName.includes(this.search)) {
+                    contact.visible = true;
+                } else {
+                    contact.visible = false;    
+                }
+            });
+        },
         
     }
 });
