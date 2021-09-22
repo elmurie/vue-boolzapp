@@ -142,13 +142,15 @@ const app = new Vue({
 
         addMessage : function() {
             if ( this.newMessage.message != '') {
-                let newObj = { message : this.newMessage.message, status : 'sent'}
+                let newObj = { date : dayjs().format(('DD/MM/YYYY HH:mm:ss')) , message : this.newMessage.message, status : 'sent'}
                 this.contacts[this.counter].messages.push(newObj);
                 this.newMessage.message = '';
-                let reply = { message : this.randomReplies[this.randomNumber()], status : 'received'};
-                setTimeout( () => this.contacts[this.counter].messages.push(reply), 1000);
-                
+                setTimeout( () => {
+                    let reply = { date : dayjs().format(('DD/MM/YYYY HH:mm:ss')) ,message : this.randomReplies[this.randomNumber()], status : 'received'};
+                    this.contacts[this.counter].messages.push(reply)
+                }, 1000);
             }
         }
     }
 });
+
