@@ -230,7 +230,7 @@ i {
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
-    padding-top: 5%;
+    padding: 1.25rem;
 }
 
 .messages ul {

@@ -87,7 +87,22 @@ const app = new Vue({
         newMessage : {
             message : '',
             status : 'sent' 
-        }
+        },
+        randomReplies : [
+            'Dammi 10 min 😊',
+            "😒",
+            "Sono d'accordo.",
+            "Sì tutto a posto 👌",
+            "Ci possiamo aggiornare domani? Volevo 😴",
+            'Sto arrivando 😉',
+            "Sappi dopo ieri sera l'umore non è dei migliori 🤬😡👿",
+            '😂😂😂🤣🤣',
+            'Poi fammi sapere per quella cosa😜',
+            'Ed io che ne so?',
+            '🤷‍♂️🤷‍♂️🤷‍♂️',
+            '🤬 vale come risposta?',
+        ]
+
     },
     methods : {
         
@@ -95,11 +110,18 @@ const app = new Vue({
             this.counter = index;
         },
 
+        randomNumber : function(min, max) {
+            return Math.floor(Math.random() * ( (this.randomReplies.length - 1) - 0 + 1) ) + 0;
+        },
+
         addMessage : function() {
             if ( this.newMessage.message != '') {
                 let newObj = { message : this.newMessage.message, status : 'sent'}
                 this.contacts[this.counter].messages.push(newObj);
                 this.newMessage.message = '';
+                let reply = { message : this.randomReplies[this.randomNumber()], status : 'received'};
+                setTimeout( () => this.contacts[this.counter].messages.push(reply), 1000);
+                
             }
         }
     }
