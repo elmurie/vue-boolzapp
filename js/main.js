@@ -157,6 +157,9 @@ const app = new Vue({
         randomNumber : function(min, max) {
             return Math.floor(Math.random() * ( (this.randomReplies.length - 1) - 0 + 1) ) + 0;
         },
+        time : function() {
+            return dayjs().format(('HH:mm'))
+        },
 
         addMessage : function() {
             if ( this.newMessage.message != '') {
