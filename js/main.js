@@ -160,18 +160,22 @@ const app = new Vue({
         },
 
         time : function() {
-            return dayjs().format(('HH:mm'))
+            return dayjs().format('HH:mm')
+        },
+
+        dateAndTime: function() {
+            return dayjs().format('DD/MM/YYYY HH:mm:ss');
         },
 
         addMessage : function() {
             if ( this.newMessage.message != '') {
-                let newObj = { date : dayjs().format(('DD/MM/YYYY HH:mm:ss')) , message : this.newMessage.message, status : 'sent'}
+                let newObj = { date : this.dateAndTime() , message : this.newMessage.message, status : 'sent'}
                 this.contacts[this.counter].messages.push(newObj);
                 this.autoScroll();
                 this.newMessage.message = '';
                 
                 setTimeout( () => {
-                    let reply = { date : dayjs().format(('DD/MM/YYYY HH:mm:ss')) , message : this.randomReplies[this.randomNumber()], status : 'received'};
+                    let reply = { date : this.dateAndTime() , message : this.randomReplies[this.randomNumber()], status : 'received'};
                     this.contacts[this.counter].messages.push(reply)
                     this.autoScroll();
                 }, 1000);
