@@ -152,6 +152,7 @@ const app = new Vue({
         
         changeContact : function(index) {
             this.counter = index;
+            this.messageIndex = null;
         },
 
         randomNumber : function(min, max) {
