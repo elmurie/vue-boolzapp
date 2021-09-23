@@ -71,7 +71,7 @@
                     <!-- Contacts list -->
                     <ul class="contacts">
                         <template v-for="(contact, index) in contacts">
-                            <li :key="index" v-if="contact.visible" @click="changeContact(index)" :tabindex="index">
+                            <li  v-if="contact.visible" @click="changeContact(index)" :tabindex="index">
                                 <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
                                 <div class="contact-name">{{contact.name}}</div>
                             </li>
@@ -106,12 +106,18 @@
                     <!-- Messages -->
                     <div class="messages" id="messageField">
                         <ul >
-                            <li v-for="(messages, index) in contacts[counter].messages" class="message-box" :class="contacts[counter].messages[index].status == 'sent' ? 'sent': 'received'">
+                            <li v-for="(message, index) in contacts[counter].messages" class="message-box" :class="message.status" :key="index" @click="showMessageMenu(index)">
                                 <div class="message-content">
-                                    {{messages.message}}
+                                    {{message.message}}
                                 </div>
                                 <div class="message-date">
-                                    {{messages.date}}
+                                    {{message.date}}
+                                </div>
+                                <div v-if="messageIndex == index" class="message-menu">
+                                    <ul>
+                                        <li>Info Messaggio</li>
+                                        <li @click="deleteMessage(index)">Cancella Messaggio</li>
+                                    </ul>
                                 </div>
                             </li>
                         </ul>

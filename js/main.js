@@ -144,8 +144,8 @@ const app = new Vue({
             'Non mi interessa',
             'Che ti devo dire? Fallo fare a tuo cugino allora'
         ],
-        search : ''
-
+        search : '',
+        messageIndex : null
 
     },
     methods : {
@@ -157,6 +157,7 @@ const app = new Vue({
         randomNumber : function(min, max) {
             return Math.floor(Math.random() * ( (this.randomReplies.length - 1) - 0 + 1) ) + 0;
         },
+
         time : function() {
             return dayjs().format(('HH:mm'))
         },
@@ -165,11 +166,11 @@ const app = new Vue({
             if ( this.newMessage.message != '') {
                 let newObj = { date : dayjs().format(('DD/MM/YYYY HH:mm:ss')) , message : this.newMessage.message, status : 'sent'}
                 this.contacts[this.counter].messages.push(newObj);
-                this.newMessage.message = '';
                 this.autoScroll();
+                this.newMessage.message = '';
                 
                 setTimeout( () => {
-                    let reply = { date : dayjs().format(('DD/MM/YYYY HH:mm:ss')) ,message : this.randomReplies[this.randomNumber()], status : 'received'};
+                    let reply = { date : dayjs().format(('DD/MM/YYYY HH:mm:ss')) , message : this.randomReplies[this.randomNumber()], status : 'received'};
                     this.contacts[this.counter].messages.push(reply)
                     this.autoScroll();
                 }, 1000);
@@ -177,7 +178,7 @@ const app = new Vue({
         },
         autoScroll: function () {
             const chatBox = document.getElementById("messageField");
-            setTimeout( () => {chatBox.scrollTop = chatBox.scrollHeight} ,0 );
+            setTimeout( () => {chatBox.scrollTop = chatBox.scrollHeight} , 0 );
             
         },
         viewContacts: function () {
@@ -191,6 +192,23 @@ const app = new Vue({
                 }
             });
         },
+
+        showMessageMenu : function(index) {
+            if ( this.messageIndex != index) {
+                this.messageIndex = index;
+            } else {
+                this.messageIndex = null;
+            }
+        },
+
+        deleteMessage: function(index) {
+            this.contacts[this.counter].messages.splice(index, 1);
+        }
+
+
+
+        
+    
         
     }
 });
