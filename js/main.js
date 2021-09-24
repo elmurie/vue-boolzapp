@@ -83,8 +83,11 @@ const app = new Vue({
                 ],
             }
         ],
+        // Contacts' array index starting value
         counter: 0,
+        // Message input starting value linked to v-model
         newMessage : '',
+        // Array of random, hardcoded replies
         randomReplies : [
             'Dammi 10 min 😊',
             "😒",
@@ -141,14 +144,19 @@ const app = new Vue({
             'Non mi interessa',
             'Che ti devo dire? Fallo fare a tuo cugino allora'
         ],
+        // Search input starting value linked to v-model
         search : '',
+        // Messages' array index starting value for message dropdown menu behaviour
         messageIndex : null
 
     },
     methods : {
         
+        // changes contacts' array index in order to display every individual chat
         changeContact : function(index) {
+            // takes same value as v-for index
             this.counter = index;
+            // toggles off message dropdown menu if the selected chat is changed
             this.messageIndex = null;
         },
 
@@ -156,8 +164,10 @@ const app = new Vue({
             return Math.floor(Math.random() * ( (this.randomReplies.length - 1) - 0 + 1) ) + 0;
         },
 
+        // it updates "Last seen" date and time of chosen contact, it returns index of last received message
         lastMessageIndex : function(array) {
             let biggestIndex = 0;
+            // The value gets updated every time the loop finds a message with "received" status
             array.forEach((element, index) => {
                 if ( element.status == 'received') {
                 biggestIndex = index;
@@ -171,20 +181,29 @@ const app = new Vue({
         },
 
         addMessage : function() {
+            // If the message input is not empty 
             if ( this.newMessage != '') {
+                // A new object is pushed into the messages array
                 this.contacts[this.counter].messages.push({ date : this.dateAndTime() , message : this.newMessage, status : 'sent'});
+                // The message input gets emptied
                 this.newMessage = '';
                 
+                // After a second, a random message from the randomReplies array gets pushed into the messages array  
                 setTimeout( () => {
                     this.contacts[this.counter].messages.push({ date : this.dateAndTime() , message : this.randomReplies[this.randomNumber()], status : 'received'})
                 }, 1000);
             }
         },
         
+        // It filters the contacts array by string
         viewContacts: function () {
             this.contacts.forEach((contact) => {
+                // The contact names are converted to lowercase letters
                 let lowerCaseName = contact.name.toLowerCase();
+                // The contact names are converted to uppercase letters
                 let upperCaseName = contact.name.toUpperCase();
+                // If the string in the search input is included either in the lowercase or uppercase array
+                // the contact's 'visible' property is set to true, meeting the condition set in the v-if directive 
                 if  (lowerCaseName.includes(this.search) || upperCaseName.includes(this.search)) {
                     contact.visible = true;
                 } else {
@@ -193,15 +212,22 @@ const app = new Vue({
             });
         },
 
+        // It toggles a message's dropdown menu on click
         showMessageMenu : function(index) {
+            // If the messages' array index is not already the same as the clicked message's index,
             if ( this.messageIndex != index) {
+                // it takes its value and meets the condition set in the v-if directive,
+                // showing the dropdown mewnu
                 this.messageIndex = index;
             } else {
+                // Otherwise it gets reinitialised and the dropdown menu disappears
                 this.messageIndex = null;
             }
         },
 
         deleteMessage: function(index) {
+            // It takes the v-for index of the message we click on
+            // and deletes one element at said index 
             this.contacts[this.counter].messages.splice(index, 1);
         }
     }
