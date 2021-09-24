@@ -242,7 +242,10 @@ i {
 }
 
 .messages ul {
+    width: 90%;
+    margin: 0 auto;
     list-style: none;
+
 }
 
 .messages li {
@@ -344,6 +347,10 @@ i {
     }
     .message-input input{
         width: 75%;
+    }
+    .messages ul {
+        width: 100%;
+        margin: 0;
     }
 }
 
