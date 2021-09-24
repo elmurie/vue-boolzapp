@@ -156,8 +156,8 @@ const app = new Vue({
             return Math.floor(Math.random() * ( (this.randomReplies.length - 1) - 0 + 1) ) + 0;
         },
 
-        time : function() {
-            return dayjs().format('HH:mm')
+        lastMessageIndex : function() {
+            return this.contacts[this.counter].messages.length - 1;
         },
 
         dateAndTime: function() {
