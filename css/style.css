@@ -248,6 +248,7 @@ i {
     flex-direction: column;
     inline-size: min-content;
     position: relative;
+    box-shadow: 0px 1px 0px 0px hsla(0, 0%, 0%, 0.281);    
 }
 
 .message-content {
@@ -265,6 +266,7 @@ i {
 .message-menu {
     position: absolute;
     background-color: #fff;
+    border-radius: 5px;
     top: 92%;
     right: 0;
     width: 60%;
@@ -273,10 +275,9 @@ i {
     padding: .125rem;
     text-align: center;
     z-index: 2;
-    box-shadow: -0.375rem .4375rem .9375rem -0.125rem rgb(141, 141, 141);
-    -webkit-box-shadow: -0.375rem .4375rem .9375rem -0.125rem rgb(141, 141, 141);
-    -moz-box-shadow: -0.375rem .4375rem .9375rem -0.125rem rgb(141, 141, 141);
-    /* display: none; */
+    box-shadow: -0.0625rem 0rem .5625rem .0625rem #8d8d8d;
+    /* -webkit-box-shadow: -0.375rem .4375rem .9375rem -0.125rem #8d8d8d;
+    -moz-box-shadow: -0.375rem .4375rem .9375rem -0.125rem #8d8d8d; */
 }
 
 .message-menu li {
