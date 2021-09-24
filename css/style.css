@@ -318,6 +318,7 @@ i {
     height: 2.5rem;
     border-radius: .3125rem;
     border: none;
+    outline: none;
 }
 
 .message-input i {

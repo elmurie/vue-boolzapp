@@ -104,8 +104,8 @@
                     <!-- /Contact bar -->
 
                     <!-- Messages -->
-                    <div class="messages" id="messageField">
-                        <ul >
+                    <div class="messages" id="messageField" v-chat-scroll="{smooth: true, notSmoothOnInit: true}">
+                        <ul>
                             <li v-for="(message, index) in contacts[counter].messages" class="message-box" :class="message.status" :key="index" @click="showMessageMenu(index)">
                                 <div class="message-content">
                                     {{message.message}}
@@ -127,7 +127,7 @@
                     <!-- Message input -->
                     <div class="message-input">
                         <i class="far fa-smile"></i>
-                        <input v-model="newMessage.message" type="text" placeholder="Scrivi un messaggio" @keyup.enter="addMessage">
+                        <input v-model="newMessage" type="text" placeholder="Scrivi un messaggio" @keyup.enter="addMessage">
                         <i class="fas fa-microphone"></i>
                     </div>
                     <!-- Message input -->
@@ -141,16 +141,19 @@
         </div>
         
         <!-- JS -->
-            <!-- Date.js -->
-            <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
-            <script>dayjs().format()</script>
-            <!-- /Date.js -->
-            <!-- Vue -->
-            <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-            <!-- /Vue -->
-            <!-- Main JS -->
-            <script src="js/main.js"></script>
-            <!-- /Main JS -->
+        <!-- Date.js -->
+        <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+        <script>dayjs().format()</script>
+        <!-- /Date.js -->
+        <!-- Vue -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <!-- /Vue -->
+        <!-- Vue chat scroll -->
+        <script src="https://cdn.jsdelivr.net/npm/vue-chat-scroll/dist/vue-chat-scroll.min.js"></script>
+        <!-- /Vue chat scroll -->
+        <!-- Main JS -->
+        <script src="js/main.js"></script>
+        <!-- /Main JS -->
         <!-- /JS -->
     </body>
 

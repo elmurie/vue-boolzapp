@@ -84,10 +84,7 @@ const app = new Vue({
             },
         ],
         counter: 0,
-        newMessage : {
-            message : '',
-            status : 'sent' 
-        },
+        newMessage : '',
         randomReplies : [
             'Dammi 10 min 😊',
             "😒",
@@ -168,24 +165,16 @@ const app = new Vue({
         },
 
         addMessage : function() {
-            if ( this.newMessage.message != '') {
-                let newObj = { date : this.dateAndTime() , message : this.newMessage.message, status : 'sent'}
-                this.contacts[this.counter].messages.push(newObj);
-                this.autoScroll();
-                this.newMessage.message = '';
+            if ( this.newMessage != '') {
+                this.contacts[this.counter].messages.push({ date : this.dateAndTime() , message : this.newMessage, status : 'sent'});
+                this.newMessage = '';
                 
                 setTimeout( () => {
-                    let reply = { date : this.dateAndTime() , message : this.randomReplies[this.randomNumber()], status : 'received'};
-                    this.contacts[this.counter].messages.push(reply)
-                    this.autoScroll();
+                    this.contacts[this.counter].messages.push({ date : this.dateAndTime() , message : this.randomReplies[this.randomNumber()], status : 'received'})
                 }, 1000);
             }
         },
-        autoScroll: function () {
-            const chatBox = document.getElementById("messageField");
-            setTimeout( () => {chatBox.scrollTop = chatBox.scrollHeight} , 0 );
-            
-        },
+        
         viewContacts: function () {
             this.contacts.forEach((contact) => {
                 let lowerCaseName = contact.name.toLowerCase();
@@ -209,12 +198,6 @@ const app = new Vue({
         deleteMessage: function(index) {
             this.contacts[this.counter].messages.splice(index, 1);
         }
-
-
-
-        
-    
-        
     }
 });
 
