@@ -81,7 +81,7 @@ const app = new Vue({
                         status: 'received'
                     }
                 ],
-            },
+            }
         ],
         counter: 0,
         newMessage : '',
@@ -156,8 +156,14 @@ const app = new Vue({
             return Math.floor(Math.random() * ( (this.randomReplies.length - 1) - 0 + 1) ) + 0;
         },
 
-        lastMessageIndex : function() {
-            return this.contacts[this.counter].messages.length - 1;
+        lastMessageIndex : function(array) {
+            let biggestIndex = 0;
+            array.forEach((element, index) => {
+                if ( element.status == 'received') {
+                biggestIndex = index;
+                }
+            });
+            return biggestIndex;
         },
 
         dateAndTime: function() {
