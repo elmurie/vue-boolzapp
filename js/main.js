@@ -1,8 +1,3 @@
-/* 
-Испания 2–1	СССР ( YYYY - "19" )
-U2NlbW8gY2hpIGxlZ2dl
-*/
-
 const app = new Vue({
     el: '#root',
     data: {
