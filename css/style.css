@@ -226,6 +226,10 @@ i {
     justify-content: center;
 }
 
+.chat-bar .icons {
+    flex-shrink: 0;
+}
+
 .chat-bar .icons i {
     margin: 0 .3125rem;
 }
@@ -421,13 +425,18 @@ i {
     .message-input {
         left: 0;
     }
-    .chat-bar h6 {
+    /* .chat-bar h6 {
         display: none;
-    }
+    } */
     .contacts li img,
     .user-profile img {
         height: 2.5rem;
         width: 2.5rem;
+    }
+}
+@media screen and (max-width: 320px) {
+    .chat-bar .icons {
+        display: none;
     }
 }
 
