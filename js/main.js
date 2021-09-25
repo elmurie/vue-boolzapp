@@ -183,14 +183,17 @@ const app = new Vue({
         addMessage : function() {
             // If the message input is not empty 
             if ( this.newMessage != '') {
+                // Identify the correct chat so that the reply 
+                // is not pushed to different chat if "counter" changes within 1 second
+                let messagesArray = this.contacts[this.counter].messages;
                 // A new object is pushed into the messages array
-                this.contacts[this.counter].messages.push({ date : this.dateAndTime() , message : this.newMessage, status : 'sent'});
+                messagesArray.push({ date : this.dateAndTime() , message : this.newMessage, status : 'sent'});
                 // The message input gets emptied
                 this.newMessage = '';
                 
                 // After a second, a random message from the randomReplies array gets pushed into the messages array  
                 setTimeout( () => {
-                    this.contacts[this.counter].messages.push({ date : this.dateAndTime() , message : this.randomReplies[this.randomNumber()], status : 'received'})
+                    messagesArray.push({ date : this.dateAndTime() , message : this.randomReplies[this.randomNumber()], status : 'received'})
                 }, 1000);
             }
         },
