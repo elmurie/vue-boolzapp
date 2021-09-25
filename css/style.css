@@ -413,6 +413,13 @@ i {
     .app-box {
         width: 100%;
         margin: 0;
+        position: relative;
+    }
+    .app-right {
+        position: static;
+    }
+    .message-input {
+        left: 0;
     }
     .chat-bar h6 {
         display: none;
