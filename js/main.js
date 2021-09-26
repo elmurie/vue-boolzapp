@@ -159,6 +159,7 @@ const app = new Vue({
             this.counter = index;
             // toggles off message dropdown menu if the selected chat is changed
             this.messageIndex = null;
+            // Updates "Last seen" date to current contact's last 'received' message
             this.lastSeen = this.lastMessageIndex(this.contacts[this.counter].messages);
         },
 
@@ -196,6 +197,7 @@ const app = new Vue({
                 // After a second, a random message from the randomReplies array gets pushed into the messages array  
                 setTimeout( () => {
                     messagesArray.push({ date : this.dateAndTime() , message : this.randomReplies[this.randomNumber()], status : 'received'});
+                    // "Last seen" string gets updated
                     this.lastSeen = this.lastMessageIndex(this.contacts[this.counter].messages)
                 }, 1000);
             }
@@ -238,6 +240,7 @@ const app = new Vue({
         }
     },
     mounted : function() {
+        // Initialises the 'Last Seen' date
         this.lastSeen = this.lastMessageIndex(this.contacts[this.counter].messages);
     }
 });

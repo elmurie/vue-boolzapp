@@ -94,8 +94,8 @@
                             <img :src="'img/avatar'+ contacts[counter].avatar +'.jpg'" :alt="contacts[counter].name">
                             <div class="contact-text">
                                 <h3>{{contacts[counter].name}}</h3>
-                                <!-- It displays time and date of last received message in this chat, acting as a "Last Seen" timestamp, if messages array is empty it does not display a time or date  -->
-                                <h6 >Ultimo accesso: {{lastSeen}}</h6>
+                                <!-- It displays time and date of last 'received' message in this chat, acting as a "Last Seen" timestamp  -->
+                                <h6>Ultimo accesso: {{lastSeen}}</h6>
                             </div>
                         </div>
                         
