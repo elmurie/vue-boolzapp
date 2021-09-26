@@ -147,7 +147,8 @@ const app = new Vue({
         // Search input starting value linked to v-model
         search : '',
         // Messages' array index starting value for message dropdown menu behaviour
-        messageIndex : null
+        messageIndex : null,
+        lastSeen : ''
 
     },
     methods : {
@@ -158,13 +159,14 @@ const app = new Vue({
             this.counter = index;
             // toggles off message dropdown menu if the selected chat is changed
             this.messageIndex = null;
+            this.lastSeen = this.lastMessageIndex(this.contacts[this.counter].messages);
         },
 
         randomNumber : function(min, max) {
             return Math.floor(Math.random() * ( (this.randomReplies.length - 1) - 0 + 1) ) + 0;
         },
 
-        // it updates "Last seen" date and time of chosen contact, it returns index of last received message
+        // It updates "Last seen" date and time of chosen contact
         lastMessageIndex : function(array) {
             let biggestIndex = 0;
             // The value gets updated every time the loop finds a message with "received" status
@@ -173,7 +175,7 @@ const app = new Vue({
                 biggestIndex = index;
                 }
             });
-            return biggestIndex;
+            return array[biggestIndex].date;
         },
 
         dateAndTime: function() {
@@ -193,7 +195,8 @@ const app = new Vue({
                 
                 // After a second, a random message from the randomReplies array gets pushed into the messages array  
                 setTimeout( () => {
-                    messagesArray.push({ date : this.dateAndTime() , message : this.randomReplies[this.randomNumber()], status : 'received'})
+                    messagesArray.push({ date : this.dateAndTime() , message : this.randomReplies[this.randomNumber()], status : 'received'});
+                    this.lastSeen = this.lastMessageIndex(this.contacts[this.counter].messages)
                 }, 1000);
             }
         },
@@ -233,6 +236,9 @@ const app = new Vue({
             // and deletes one element at said index 
             this.contacts[this.counter].messages.splice(index, 1);
         }
+    },
+    mounted : function() {
+        this.lastSeen = this.lastMessageIndex(this.contacts[this.counter].messages);
     }
 });
 

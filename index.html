@@ -95,7 +95,7 @@
                             <div class="contact-text">
                                 <h3>{{contacts[counter].name}}</h3>
                                 <!-- It displays time and date of last received message in this chat, acting as a "Last Seen" timestamp, if messages array is empty it does not display a time or date  -->
-                                <h6 v-if="contacts[counter].messages.length != 0">Ultimo accesso: {{contacts[counter].messages[lastMessageIndex(contacts[counter].messages)].date}}</h6>
+                                <h6 >Ultimo accesso: {{lastSeen}}</h6>
                             </div>
                         </div>
                         
