@@ -8,5 +8,5 @@ Try it out! **https://elmurie.github.io/vue-boolzapp/**
 <details>
   <summary>Screenshots</summary><details>
   <img src="https://i.imgur.com/N0P8om6.png" name="1">
-  <img src="https://i.imgur.com/xacMkPV.png" name="2">
+  <img src="https://i.imgur.com/fxFq5rG.png" name="2">
 </details>
